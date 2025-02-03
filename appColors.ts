@@ -7,6 +7,13 @@ export const appColors = {
   transparent: "transparent",
 
   //base colors
+  richBlack: "#021526",
+  upMaroon: "#750E21",
+  maastrichtBlue: "#09122C",
+  darkBackground: "#121212",
+  darkText: "#E0E0E0",
+  lightBackground: "#FFFFFF",
+  lightText: "#000000",
   grayDarker: "#181C26",
   grayDark: "#18203c",
   gray: "#3C4359",

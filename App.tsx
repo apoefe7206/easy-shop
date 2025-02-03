@@ -7,27 +7,33 @@ import { navigationRef } from "./utils/helpers/navigation";
 import { globalStyle } from "./globalStyle";
 import { renderAlert } from "./utils/helpers/renderAlert";
 import { AppProvider } from "./AppProvider";
+import NetworkProvider from "./NetworkProvider";
 import GlobalState from "./src/store/GlobalStore";
+import { FavoritesProvider } from "./src/utils/storage/FavoritesContext";
 
 function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView style={globalStyle.flex1}>
       <NavigationContainer ref={navigationRef}>
-        <ToastProvider
-          placement="top"
-          renderType={{
-            success: (toast) => renderAlert("success", toast),
-            error: (toast) => renderAlert("error", toast),
-            warning: (toast) => renderAlert("warning", toast),
-            info: (toast) => renderAlert("info", toast),
-          }}
-          offset={50}
-          duration={3000}
-        >
-          <GlobalState>
-            <AppProvider />
-          </GlobalState>
-        </ToastProvider>
+        <NetworkProvider>
+          <ToastProvider
+            placement="top"
+            renderType={{
+              success: (toast) => renderAlert("success", toast),
+              error: (toast) => renderAlert("error", toast),
+              warning: (toast) => renderAlert("warning", toast),
+              info: (toast) => renderAlert("info", toast),
+            }}
+            offset={50}
+            duration={3000}
+          >
+            <GlobalState>
+              <FavoritesProvider>
+                <AppProvider />
+              </FavoritesProvider>
+            </GlobalState>
+          </ToastProvider>
+        </NetworkProvider>
       </NavigationContainer>
     </GestureHandlerRootView>
   );

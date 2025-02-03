@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Pressable, useWindowDimensions, View } from "react-native";
+import { Pressable, useWindowDimensions, View, Text } from "react-native";
 
 import { appColors } from "../../../../appColors";
 import { StatusTypes } from "../../../models/app/App";
@@ -30,7 +30,7 @@ export const Alerts: React.FC<AlertsProps> = ({
         backgroundColor: appColors.warning,
         lightBackgroundColor: appColors.warningLight,
         iconName: "warning",
-        alertTitle: "Warning",
+        alertTitle: "Removed",
       },
       error: {
         backgroundColor: appColors.error,
@@ -42,7 +42,7 @@ export const Alerts: React.FC<AlertsProps> = ({
         backgroundColor: appColors.success,
         lightBackgroundColor: appColors.successLight,
         iconName: "check",
-        alertTitle: "Success",
+        alertTitle: "Added",
       },
     }),
     []
@@ -50,6 +50,11 @@ export const Alerts: React.FC<AlertsProps> = ({
 
   const { backgroundColor, lightBackgroundColor, iconName, alertTitle } =
     statusConfig[type];
+
+  const truncatedAlertText = `${alertText}... ${
+    type === "success" ? "added" : "removed"
+  }`;
+
   return (
     <View
       style={[
@@ -59,9 +64,13 @@ export const Alerts: React.FC<AlertsProps> = ({
         },
       ]}
     >
-      <View style={styles.headerContainer}></View>
+      <View style={styles.headerContainer}>
+        <Text style={[{ color: backgroundColor }]}>{alertTitle}</Text>
+      </View>
       <View style={styles.body}>
-        <View></View>
+        <Text numberOfLines={1} ellipsizeMode="tail">
+          {truncatedAlertText}
+        </Text>
       </View>
       <Pressable onPress={callBack}>
         <View style={styles.circleContainer}>

@@ -2,9 +2,32 @@ import { StyleSheet } from "react-native";
 
 import { appColors } from "./appColors";
 
+export const lightTheme = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  text: {
+    color: "#000",
+  },
+});
+
+export const darkTheme = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: appColors.maastrichtBlue,
+  },
+  text: {
+    color: "#fff",
+  },
+});
+
 export const globalStyle = StyleSheet.create({
   flex1: {
     flex: 1,
+  },
+  darkContainer: {
+    backgroundColor: appColors.richBlack,
   },
   p0: {
     padding: 0,
@@ -42,37 +65,5 @@ export const globalStyle = StyleSheet.create({
   },
   gap4: {
     gap: 4,
-  },
-  flexRow: {
-    flexDirection: "row",
-  },
-  bold: {
-    fontFamily: "Montserrat-Bold",
-  },
-  mt12: {
-    marginTop: 12,
-  },
-  shadow: {
-    shadowColor: appColors.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
-  formatItemContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  marginTopMinus16: {
-    marginTop: -16,
-  },
-  whiteBg: {
-    flex: 1,
-    backgroundColor: appColors.white,
   },
 });
