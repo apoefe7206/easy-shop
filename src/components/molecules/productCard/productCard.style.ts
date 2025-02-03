@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     height: 150,
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
+    resizeMode: "contain",
   },
   title: {
     fontFamily: "Montserrat-Bold",

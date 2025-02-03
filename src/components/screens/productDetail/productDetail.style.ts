@@ -30,6 +30,9 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: "montserrat-semiBold",
   },
+  darkDescription: {
+    color: appColors.white,
+  },
   description: {
     marginTop: 15,
   },

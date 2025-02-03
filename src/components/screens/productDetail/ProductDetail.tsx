@@ -44,7 +44,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({
           <Image source={{ uri: image }} style={styles.image} />
           <CustomText style={styles.title} type="default" text={title} />
           <CustomText
-            style={styles.description}
+            style={[styles.description, isDarkMode && styles.darkDescription]}
             type="default"
             text={description}
           />
